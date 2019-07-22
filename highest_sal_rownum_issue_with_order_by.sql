@@ -43,9 +43,10 @@ select max(t1.salary) from employees_t t1  where salary NOT IN
 
 --3rd hightest salary 
 
-select salary ,rownum as ranking from 
-(select salary from employees_t order by salary desc)
-;
+select salary from 
+(select salary ,rownum as ranking from 
+(select salary from employees_t order by salary desc)) k
+where k.ranking = 3;
 
 
 
