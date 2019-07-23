@@ -49,18 +49,7 @@ select salary from
 where k.ranking = 3;
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+-- with dense_rank and rank 
 
 select * from 
 (select salary ,dense_rank() over(order by salary desc) as ranking from emp_t ) t;
