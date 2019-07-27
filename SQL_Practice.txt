@@ -43,4 +43,12 @@ Where NOT EXISTS
 
 
 Ques 
-1. List down the employees whose salary is gt than av salary of their department
+1. List down the employees whose
+ salary is gt than av salary of
+ their department
+Ans :-
+Select e.* from employees e 
+ where sal > (select avg(sal)
+              From employees e1
+              Where e1.deptno=e.deptno)
+
