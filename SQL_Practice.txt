@@ -4,3 +4,33 @@ select dept_id ,lag(salaray,1,0) over (partition by dept_id order by salaray) ,a
 /
 
 1.Corrleated subqueries are used to perform reverse business process information.
+It is used :- 
+Suppose Bank has so many products and corresponding to that it has customers 
+No Bank wants to know 
+->is there any  product which has at least one customer 
+Meaning 
+Get the product details which has atleast one customer .
+
+
+->Is there any Dept which has atleast /which are having at least one customer .
+ Get the dept details which has at least one employee
+
+-> Is there any Dept which has no employee
+Use NOT EXISTS
+
+-> Is there any product which had no customer
+Use NOT EXISTS 
+
+
+
+EXISTS
+=======
+Select d.* From dept d 
+Where exists 
+(Select 1 from emp e where e.deptno=d.deptno)
+
+NOT EXISTS
+===========
+Select d.* From dept d 
+Where NOT EXISTS 
+(Select empno from emp e where e.empno=d.dwptno)
